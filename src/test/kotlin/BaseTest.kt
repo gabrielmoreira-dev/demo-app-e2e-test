@@ -40,5 +40,5 @@ open class BaseTest {
         .let { driver = IOSDriver(URL(SERVER_URL), it) }
 
     @AfterClass
-    fun dispose() = driver.quit()
+    protected fun dispose() = driver.quit()
 }
