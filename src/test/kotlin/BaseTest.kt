@@ -11,6 +11,7 @@ import java.nio.file.Paths
 
 open class BaseTest {
     companion object {
+        const val USER_DIR = "user.dir"
         const val APP_DIR = "src/test/resources/MyDemoApp.app"
         const val AUTOMATION_NAME = "XCUITest"
         const val DEVICE_NAME = "iPhone 15 Pro"
@@ -32,7 +33,7 @@ open class BaseTest {
 
     @BeforeClass
     protected fun setUpDriver() = XCUITestOptions()
-        .setApp(Paths.get(System.getProperty("user.dir"), APP_DIR).toAbsolutePath().toString())
+        .setApp(Paths.get(System.getProperty(USER_DIR), APP_DIR).toAbsolutePath().toString())
         .setAutomationName(AUTOMATION_NAME)
         .setDeviceName(DEVICE_NAME)
         .setPlatformName(PLATFORM_NAME)
